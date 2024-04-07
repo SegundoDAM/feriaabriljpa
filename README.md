@@ -45,7 +45,7 @@ A continuación se indican los endpoint correspondientes a las features menciona
 
 Por defecto al correr la aplicación tiene el puerto 8080 (cambiar en src/main/resources/application.properties si se necesita)
 
-http://localhost:8080/api.. es la raiz de la URL
+Raíz de URL: `http://localhost:8080/api..`
 
 - Listar Post:
   
