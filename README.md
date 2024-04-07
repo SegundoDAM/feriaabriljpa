@@ -14,9 +14,11 @@ Este proyecto esta dedicado para la presentación de la Feria de FP Curso 23-24 
   - H2
   - MysQL (Migración posterior) 
 
+
 ## Aplicación 
 
 La aplicación se bada en un ejemplo simple de posts (orientado a Tweeter actual X)
+
 
 ## Features
 
@@ -36,6 +38,7 @@ Lista los mensajes que posteo un usuario
 
 El campo like de un post cambiara segun la elección del usuario
 
+
 ## EnPoints
 
 A continuación se indican los endpoint correspondientes a las features mencionadas anteriormente:
@@ -45,9 +48,13 @@ Por defecto al correr la aplicación tiene el puerto 8080 (cambiar en src/main/r
 http://localhost:8080/api.. es la raiz de la URL
 
 - Listar Post:
+  
     `http://localhost:8080/api/mensajes/listar`
+  
 - Crear Post:
+  
    `http://localhost:8080/api/mensajes/crear`
+  
    Este metodo necesita un body:
   ```
   {
@@ -59,10 +66,15 @@ http://localhost:8080/api.. es la raiz de la URL
     }
   }
   ```
+  
 - Listar post por usuario:
+  
   `http://localhost:8080/api/mensajes/byusuario/jesus_garcia`
+  
 - Dar o quitar Like a Post:
+  
   `http://localhost:8080/api/mensajes/likechange`
+  
   Este endpoint necesita un body como entrada:
   ```
   {
