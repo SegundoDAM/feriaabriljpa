@@ -6,6 +6,6 @@ public interface Service<T, ID> {
 	
 	ResponseEntity<?> getAll();
 	ResponseEntity<?> getById(ID id);
-	
+	ResponseEntity<?> create(T t);
 	
 }
