@@ -3,13 +3,16 @@ package com.adorno.adorno.servicios;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.adorno.adorno.modelo.entity.Mensaje;
 import com.adorno.adorno.repositorios.MensajeRepository;
 import com.adorno.adorno.repositorios.UsuarioRepository;
 
-public class MensajeService implements Service<Mensaje, Long>{
+@Service
+public class MensajeService implements ServiceFeria<Mensaje, Long>{
 
 	private final MensajeRepository mensajeRepo;
 	private final UsuarioRepository usuarioRepo;
@@ -43,7 +46,7 @@ public class MensajeService implements Service<Mensaje, Long>{
 		}
 		
 		Mensaje mensaje = this.mensajeRepo.save(t);
-		return ResponseEntity.ok(mensaje);
+		return new ResponseEntity<Mensaje>(mensaje, HttpStatus.OK);
 	}
 
 	
