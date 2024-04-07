@@ -26,13 +26,6 @@ public class UsuarioService implements Service<Usuario, String>{
 
 	@Override
 	public ResponseEntity<?> getById(String id) {
-//		Optional<String> nombreMarca=Optional.of("");
-//		Optional<Marca> marca = this.marcaRepo.findById(id);
-//		if(marca.isPresent()) {
-//			nombreMarca = Optional.of(marca.get().getNombre());	
-//		}
-//		return nombreMarca;
-		
 		Optional<Usuario> usuarioOpt = this.UsuarioRepo.findById(id);
 		if(usuarioOpt.isPresent()) {
 			return ResponseEntity.ok(usuarioOpt.get());

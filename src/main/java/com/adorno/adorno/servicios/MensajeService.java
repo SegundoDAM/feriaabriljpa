@@ -1,5 +1,8 @@
 package com.adorno.adorno.servicios;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 
 import com.adorno.adorno.modelo.entity.Mensaje;
@@ -19,20 +22,28 @@ public class MensajeService implements Service<Mensaje, Long>{
 
 	@Override
 	public ResponseEntity<?> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Mensaje> mensajes = this.mensajeRepo.findAll();
+		return ResponseEntity.ok(mensajes);
 	}
 
 	@Override
 	public ResponseEntity<?> getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Mensaje> mensajeOptional =this.mensajeRepo.findById(id);
+		if(mensajeOptional.isPresent()) {
+			return ResponseEntity.ok(mensajeOptional.get());
+		}
+		return ResponseEntity.badRequest().body("No existe el mensaje "+id);
 	}
 
 	@Override
 	public ResponseEntity<?> create(Mensaje t) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(this.usuarioRepo.findById(t.getUsuario().getNombreUsuario()).isEmpty()) {
+			this.usuarioRepo.save(t.getUsuario());
+		}
+		
+		Mensaje mensaje = this.mensajeRepo.save(t);
+		return ResponseEntity.ok(mensaje);
 	}
 
 	
