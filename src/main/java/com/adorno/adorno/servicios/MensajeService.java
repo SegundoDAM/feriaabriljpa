@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.adorno.adorno.modelo.entity.Mensaje;
+import com.adorno.adorno.modelo.entity.Usuario;
 import com.adorno.adorno.repositorios.MensajeRepository;
 import com.adorno.adorno.repositorios.UsuarioRepository;
 
@@ -67,5 +67,15 @@ public class MensajeService implements ServiceFeria<Mensaje, Long>{
 		return new ResponseEntity<String>("Mensaje no existente", HttpStatus.BAD_REQUEST);
 	}
 
+	public ResponseEntity<?> getByUsuario(Usuario usuario){
+		if(usuario.getNombreUsuario()!=null) {
+			Optional<Usuario> usuarioBD = this.usuarioRepo.findById(usuario.getNombreUsuario()); 
+			if(usuarioBD.isPresent()) {
+				List<Mensaje> mensajes = this.mensajeRepo.findByUsuario(usuarioBD.get());
+				return new ResponseEntity<List<Mensaje>>(mensajes, HttpStatus.OK);
+			}
+		}
+		return ResponseEntity.badRequest().body("Usuario no existe");
+	}
 	
 }
