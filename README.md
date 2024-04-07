@@ -5,10 +5,11 @@ Este proyecto esta dedicado para la presentación de la Feria de FP Curso 23-24 
 ## Tecnología 
 
  > Spring version 3.2.7
-> lombok (1.18)
-> jpa
-> H2
-> web
+ Dependencias de spring
+ - lombok (1.18)
+ - jpa
+ -  H2
+ -   web
  > Base datos: 
   - H2
   - MysQL (Migración posterior) 
