@@ -1,10 +1,9 @@
 package com.adorno.adorno.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +30,10 @@ public class MensajeController {
 	@PostMapping("crear")
 	public ResponseEntity<?> crearMensaje(@RequestBody Mensaje mensaje){
 		return this.mensajeService.create(mensaje);
+	}
+	
+	@PutMapping("likechange")
+	public ResponseEntity<?> changeLike(@RequestBody Mensaje mensaje){
+		return this.mensajeService.changeLike(mensaje);
 	}
 }

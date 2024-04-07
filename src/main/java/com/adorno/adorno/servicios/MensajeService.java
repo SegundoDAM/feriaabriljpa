@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,22 @@ public class MensajeService implements ServiceFeria<Mensaje, Long>{
 		return new ResponseEntity<Mensaje>(mensaje, HttpStatus.OK);
 	}
 
-	
+	public ResponseEntity<?> changeLike(Mensaje mensaje){
+		
+		Optional<Mensaje> mensajeDbOptional = this.mensajeRepo.findById(mensaje.getId());
+
+		Boolean likeChanged= false;
+		
+		if(mensajeDbOptional.isPresent()) {
+			
+			mensajeDbOptional.get().setLikes(mensaje.isLikes());
+			this.mensajeRepo.save(mensajeDbOptional.get());
+			likeChanged = true;
+			return new ResponseEntity<Boolean>(likeChanged, HttpStatus.OK); 
+		}
+		
+		return new ResponseEntity<String>("Mensaje no existente", HttpStatus.BAD_REQUEST);
+	}
 
 	
 }
