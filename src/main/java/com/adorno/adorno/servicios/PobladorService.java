@@ -2,8 +2,8 @@ package com.adorno.adorno.servicios;
 
 import org.springframework.stereotype.Service;
 
-import com.adorno.adorno.modelo.Mensaje;
-import com.adorno.adorno.modelo.Usuario;
+import com.adorno.adorno.modelo.entity.Mensaje;
+import com.adorno.adorno.modelo.entity.Usuario;
 import com.adorno.adorno.repositorios.MensajeRepository;
 import com.adorno.adorno.repositorios.UsuarioRepository;
 

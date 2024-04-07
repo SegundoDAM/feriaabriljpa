@@ -1,4 +1,4 @@
-package com.adorno.adorno.modelo;
+package com.adorno.adorno.modelo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
