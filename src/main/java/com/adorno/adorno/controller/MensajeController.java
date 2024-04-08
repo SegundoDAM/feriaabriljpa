@@ -25,13 +25,13 @@ public class MensajeController {
 		this.mensajeService = mensajeService;
 	}
 
-	@GetMapping("listar")
+	@GetMapping("todos")
 	public ResponseEntity<?> listarMensajes(){
 
 		return this.mensajeService.getAll();
 	}
 	
-	@PostMapping("crear")
+	@PostMapping("nuevo")
 	public ResponseEntity<?> crearMensaje(@RequestBody Mensaje mensaje){
 		return this.mensajeService.create(mensaje);
 	}
