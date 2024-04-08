@@ -49,11 +49,11 @@ Raíz de URL: `http://localhost:8080/api..`
 
 - Listar Post:
   
-    `http://localhost:8080/api/mensajes/listar`
+    `http://localhost:8080/api/mensajes/todos`
   
 - Crear Post:
   
-   `http://localhost:8080/api/mensajes/crear`
+   `http://localhost:8080/api/mensajes/nuevo`
   
    Este metodo necesita un body:
   ```
