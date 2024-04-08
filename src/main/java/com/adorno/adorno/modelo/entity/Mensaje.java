@@ -1,5 +1,6 @@
-package com.adorno.adorno.modelo;
+package com.adorno.adorno.modelo.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
