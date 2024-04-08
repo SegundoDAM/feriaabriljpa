@@ -1,6 +1,7 @@
 package com.adorno.adorno.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,7 @@ import com.adorno.adorno.modelo.entity.Mensaje;
 import com.adorno.adorno.modelo.entity.Usuario;
 import com.adorno.adorno.servicios.MensajeService;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("api/mensajes")
 public class MensajeController {
