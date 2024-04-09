@@ -12,42 +12,58 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.adorno.adorno.modelo.entity.Mensaje;
 import com.adorno.adorno.modelo.entity.Usuario;
-import com.adorno.adorno.servicios.MensajeService;
+import com.adorno.adorno.servicios.PiadorBaseDeDatos;
 
 @CrossOrigin
+
+
+
+
 @RestController
 @RequestMapping("api/mensajes")
 public class MensajeController {
 	
-	private final MensajeService mensajeService;
 	
-	public MensajeController(MensajeService mensajeService) {
-		super();
-		this.mensajeService = mensajeService;
-	}
 
 	@GetMapping("todos")
 	public ResponseEntity<?> listarMensajes(){
 
-		return this.mensajeService.getAll();
+		return this.piadorBaseDeDatos.getAll();
 	}
+	
+	
+	
+	@GetMapping("byusuario/{nombreUsuario}")
+	public ResponseEntity<?> getByUsuarios(@PathVariable String nombreUsuario){
+	
+		return this.piadorBaseDeDatos.getByUsuario(new Usuario(nombreUsuario, null));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@PostMapping("nuevo")
 	public ResponseEntity<?> crearMensaje(@RequestBody Mensaje mensaje){
-		return this.mensajeService.create(mensaje);
+		return this.piadorBaseDeDatos.create(mensaje);
 	}
 	
 	@PutMapping("likechange")
 	public ResponseEntity<?> changeLike(@RequestBody Mensaje mensaje){
-		return this.mensajeService.changeLike(mensaje);
+		return this.piadorBaseDeDatos.changeLike(mensaje);
 	}
 	
-	@GetMapping("byusuario/{nombreUsuario}")
-	public ResponseEntity<?> getByUsuarios(@PathVariable String nombreUsuario){
-		// Esta parte esta hecha deprisa aprisa con prisa
-		// Orientacion de que poner por parametro y si puedo aqui convertir
-		// Se que aqui iria DTO y eso...
+private final PiadorBaseDeDatos piadorBaseDeDatos;
 	
-		return this.mensajeService.getByUsuario(new Usuario(nombreUsuario, null));
+	public MensajeController(PiadorBaseDeDatos mensajeService) {
+		super();
+		this.piadorBaseDeDatos = mensajeService;
 	}
 }

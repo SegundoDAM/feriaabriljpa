@@ -19,10 +19,10 @@ public class PobladorService {
     }
 public void cargarDatos() {
         // Carga de datos de ejemplo
-        Usuario usuario1 = new Usuario("usuario1", "usuario1@example.com");
+        Usuario usuario1 = new Usuario("Antonio", "tony@hotmail.com");
         usuarioRepository.save(usuario1);
 
-        Usuario usuario2 = new Usuario("usuario2", "usuario2@example.com");
+        Usuario usuario2 = new Usuario("Alba", "alba@google.com");
         usuarioRepository.save(usuario2);
 
         Usuario usuario3 = new Usuario("Portalo", "portalo@gmail.com");
@@ -31,13 +31,13 @@ public void cargarDatos() {
         Usuario usuario4 = new Usuario("Yisus", "ammorch@google.com");
         usuarioRepository.save(usuario4);
         
-        Mensaje mensaje1 = new Mensaje("Mensaje 1", true, usuario1);
+        Mensaje mensaje1 = new Mensaje("Este tweeter falso no esta tan mal!!", true, usuario1);
         mensajeRepository.save(mensaje1);
 
-        Mensaje mensaje2 = new Mensaje("Mensaje 2", false, usuario2);
+        Mensaje mensaje2 = new Mensaje("Iniciandome en el mundo de la ciencia, que emoción!!", false, usuario2);
         mensajeRepository.save(mensaje2);
 
-        Mensaje mensaje3 = new Mensaje("Mensaje 3", true, usuario1);
+        Mensaje mensaje3 = new Mensaje("Odio la lluvia..... que ganas de playa", true, usuario1);
         mensajeRepository.save(mensaje3);
 
         Mensaje mensaje4 = new Mensaje("Disfrutando de la Feria de Abril Sevillana :D", true, usuario3);
@@ -49,7 +49,7 @@ public void cargarDatos() {
         Mensaje mensaje6 = new Mensaje("Elon Musk Tiembla!", false, usuario3);
         mensajeRepository.save(mensaje6);
         
-        Mensaje mensaje7 = new Mensaje("Los Sevillanos no entiendes de Feria...", false, usuario4);
+        Mensaje mensaje7 = new Mensaje("Los Sevillanos no entienden de Feria...", false, usuario4);
         mensajeRepository.save(mensaje7);
 
         // Puedes agregar más datos según sea necesario

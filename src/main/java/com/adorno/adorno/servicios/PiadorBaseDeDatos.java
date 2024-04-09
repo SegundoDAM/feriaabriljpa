@@ -13,12 +13,12 @@ import com.adorno.adorno.repositorios.MensajeRepository;
 import com.adorno.adorno.repositorios.UsuarioRepository;
 
 @Service
-public class MensajeService implements ServiceFeria<Mensaje, Long>{
+public class PiadorBaseDeDatos implements ServiceFeria<Mensaje, Long>{
 
 	private final MensajeRepository mensajeRepo;
 	private final UsuarioRepository usuarioRepo;
 	
-	public MensajeService(MensajeRepository mensajeRepo, UsuarioRepository usuarioRepo) {
+	public PiadorBaseDeDatos(MensajeRepository mensajeRepo, UsuarioRepository usuarioRepo) {
 		super();
 		this.mensajeRepo = mensajeRepo;
 		this.usuarioRepo = usuarioRepo;
